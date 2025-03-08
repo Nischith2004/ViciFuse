@@ -17,14 +17,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import HomeIcon from "@mui/icons-material/Home";
-import OnlinePredictionIcon from "@mui/icons-material/OnlinePrediction";
-import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
-import NewspaperIcon from "@mui/icons-material/Newspaper";
 
 const drawerWidth = 240;
 
@@ -143,37 +136,23 @@ export default function PersistentDrawerRight() {
         </DrawerHeader>
         <Divider />
         <List>
-          {[
-            { text: "Home", icon: <HomeIcon />, path: "/home" },
-            {
-              text: "Prediction",
-              icon: <OnlinePredictionIcon />,
-              path: "/prediction",
-            },
-            { text: "News", icon: <NewspaperIcon />, path: "/news" },
-            // Updated the Profile route to "/profilepage"
-            {
-              text: "Profile",
-              icon: <AccountCircleIcon />,
-              path: "/profilepage",
-            },
-            { text: "Map", icon: <AddLocationAltIcon />, path: "/map" },
-            { text: "Contact", icon: <ContactMailIcon />, path: "/contact" },
-          ].map(({ text, icon, path }) => (
-            <Link
-              to={path}
-              key={text}
-              style={{ textDecoration: "none", color: "inherit" }}
-              onClick={() => changePage(text)}
-            >
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>{icon}</ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            </Link>
-          ))}
+          {[{ text: "Home", icon: <HomeIcon />, path: "/home" }].map(
+            ({ text, icon, path }) => (
+              <Link
+                to={path}
+                key={text}
+                style={{ textDecoration: "none", color: "inherit" }}
+                onClick={() => changePage(text)}
+              >
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>{icon}</ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+            )
+          )}
         </List>
         <Divider />
       </Drawer>
